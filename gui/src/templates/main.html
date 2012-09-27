@@ -1,0 +1,100 @@
+<style type="text/css">
+html {
+	background-color: #424242;
+}
+div {
+	font-family: Verdana, Arial, Tahoma;
+	font-size: 10pt;
+	padding: 0px;
+	margin: 0px;
+}
+div.vulnerability {
+	background-color: #8FC750;
+	border: 1px solid #000;
+	margin-bottom: 5px;
+}
+div.vulnerability div.titlebar {
+	cursor: pointer;
+	background-color: #59A800;
+}
+div.vulnerability div.titlebar:hover {
+	background: #5DAF00;
+}
+div.vulnerability div.title {
+	font-weight: bold;
+	border-bottom: 1px solid #395E0E;
+	padding: 4px;
+}
+div.vulnerability div.descriptions {
+	display: none;
+}
+div.vulnerability div.request {
+	padding: 2px;
+	margin: 4px;
+	font-weight: bold;
+}
+div.vulnerability div.descriptions div.description {
+	padding: 2px;
+	margin: 4px;
+	border: 1px solid #395E0E;
+}
+div.vulnerability div.descriptions div.description:hover {
+	background-color: #91CD4B;
+}
+div.vulnerability div.descriptions div.description div.flowpath,
+div.vulnerability div.descriptions div.description div.dependencies {
+	font-weight: bold;
+}
+div.vulnerability div.descriptions div.description div.flowpathcontent,
+div.vulnerability div.descriptions div.description div.dependenciescontent {
+	padding-left: 15px;
+}
+div.vulnerability div.iconminus {
+	width: 9px;
+	height: 9px;
+	float: left;
+	margin: 7px 6px;
+	background: 
+		url('data:image/png;base64,R0lGODlhCQAJANUAAPLy7t/b0vHw68/Iu8O6qsa+rtLMwO3t5/f28/z8+sC3ptzYz+rp4+zr5tLMv/b29NjTydvWzOPg2fDw7MK4qPX18eTh2dbRxtfSx+Xh2vf39MG4p/f39fz8+/39+7DC0wAAAP///3iYtQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAJAAkAAAY2wI9oSBQJQ8hkaNjxODsJxJDD0WgegsywAup2A0PA5NBgSCJDywKCuRgGQ0eBstkoCMYi8RMEADs=')
+		no-repeat
+		left top
+	;
+}
+div.vulnerability div.iconplus {
+	width: 9px;
+	height: 9px;
+	float: left;
+	margin: 7px 6px;
+	background: 
+		url('data:image/png;base64,R0lGODlhCQAJANUAAPHw6+Th2djTydLMv+rp49zYz8K4qPDw7Pf288O6qsC3pt/b0sa+rvz8+u3t58/Iu/X18dvWzPLy7tLMwOPg2fb29NbRxvf39OXh2sG4p/39+/f39fz8+7DC0////wAAAHiYtQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAJAAkAAAY3wA5oSAQJPcikZ8jRaD6cBmK42Vw+FQBmCPl4vYuh5OD4ECiRYaAg+Fgmj+GAYchkFAljkdgJAgA7')
+		no-repeat
+		left top
+	;
+}
+a {
+	color: #000;
+	text-decoration: underline;
+}
+a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+</style>
+
+<script type="text/javascript">
+window.oncontextmenu = function() { return false; };
+
+function toggle(id) {
+	var descr = document.getElementById("d" + id);
+	var icon = document.getElementById("i" + id);
+	
+	if (descr.style.display == "block") {
+		descr.style.display = "none";
+		icon.className = "iconplus";
+	} else {
+		descr.style.display = "block";
+		icon.className = "iconminus";
+	}
+	return false;
+}
+</script>

@@ -1,0 +1,49 @@
+<project name="THAPS" default="compile" basedir=".">
+
+	<property name="arch" value="64"/>
+	<property name="src" value="src"/>
+	<property name="lib" value="lib"/>
+	<property name="build" value="build"/>
+	<property name="templates" value="templates"/>
+	<property name="jar" value="thaps.jar"/>
+	<property name="pkg" value="dk.aau.sw1001f12"/>
+
+	<path id="jars">
+		<fileset dir="${lib}" includes="**/*.jar" excludes="swt*.jar"/>
+		<fileset dir="${lib}" includes="**/swt${arch}.jar"/>
+	</path>
+
+	<target name="compile" description="Compile THAPS project" if="arch">
+		<echo message="Building for ${arch}bit architecture"/>
+		<mkdir dir="${build}"/>
+		<mkdir dir="${build}/${templates}"/>
+		<javac srcdir="${src}" destdir="${build}" includeantruntime="false" classpathref="jars"/>
+		<copy  todir="${build}/${templates}">
+			<fileset dir="${src}/${templates}" includes="**/*.html"/>
+		</copy>
+	</target>
+	
+	<target name="jar" depends="compile" description="Generates JAR file">
+		<jar jarfile="${jar}" basedir="${build}">
+			<zipgroupfileset dir="${lib}" includes="*.jar" excludes="swt*.jar"/>
+			<zipgroupfileset dir="${lib}" includes="swt${arch}.jar"/>
+			<manifest>
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Implementation-Vendor" value="Torben Jensen, Heine Pedersen"/>
+                <attribute name="Implementation-Vendor-Id" value="${pkg}"/>
+                <attribute name="Implementation-Title" value="THAPS"/>
+                <attribute name="Main-Class" value="${pkg}.GUI"/>
+            </manifest>
+		</jar>
+	</target>
+	
+	<target name="run" depends="jar" description="Executes THAPS">
+		<java jar="${jar}" fork="true"/>
+	</target>
+	
+	<target name="clean" description="Clean">
+		<delete file="${jar}"/>
+		<delete dir="${build}"/>
+	</target>
+
+</project>
