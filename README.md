@@ -11,6 +11,7 @@ This project consists of three parts:
  * PHP >= 5.3.0
  * MongoDB >= 0.4
  * PHP MongoDB extension >= 1.2.10
+ * libmongoc-legacy 0.8.1
 
 # THAPS parts
 
