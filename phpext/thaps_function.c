@@ -34,8 +34,8 @@ int fcall_handler(ZEND_OPCODE_HANDLER_ARGS) {
 
 	if (opline->opcode == ZEND_DO_FCALL_BY_NAME) {
 
-		fname = (char *)(execute_data->fbc->common.function_name);
-		scope = execute_data->fbc->common.scope;
+		fname = (char *)(execute_data->call->fbc->common.function_name);
+        scope = execute_data->call->fbc->common.scope;
 
 	} else {
 

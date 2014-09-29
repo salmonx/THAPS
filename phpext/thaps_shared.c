@@ -1,7 +1,13 @@
 #include "php_thaps.h"
 #include "thaps_shared.h"
 
+#if ZEND_MODULE_API_NO >= 20131226
+#define THAPS_T(offset) (*EX_TMP_VAR(execute_data, offset))
+#define THAPS_CV(i) (*EX_CV_NUM(execute_data, i))
+#else
 #define THAPS_T(offset) (*(temp_variable *)((char*)execute_data->Ts + offset))
+#define THAPS_CV(i) execute_data->CVs[i]
+#endif
 
 extern ZEND_DECLARE_MODULE_GLOBALS(thaps);
 
@@ -97,9 +103,9 @@ zval *thaps_get_zval(THAPS_TS_DC THAPS_NODE *node, int node_type, zend_execute_d
 #endif
 		case IS_CV: {
 #if ZEND_MODULE_API_NO >= 20100525
-            zval ***ret = &execute_data->CVs[node->var];
+            zval ***ret = &THAPS_CV(node->var);
 #else
-			zval ***ret = &execute_data->CVs[node->u.var];
+			zval ***ret = &THAPS_CV(node->u.var);
 #endif
 			if (!*ret) {
 #if ZEND_MODULE_API_NO >= 20100525

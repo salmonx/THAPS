@@ -209,7 +209,7 @@ void db_open(THAPS_TS_D) {
 void db_insert(THAPS_TS_DC char *coll, bson *b) {
 	if (INI_EXISTS("thaps.dbhost")) {
 		dbug(THAPS_TS_CC "Inserting document into %s", coll);
-		mongo_insert(&THAPS_G(db), coll, b);
+		mongo_insert(&THAPS_G(db), coll, b, NULL);
 	}
 }
 
