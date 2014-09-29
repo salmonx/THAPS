@@ -16,8 +16,8 @@
 #include <stdio.h>
 #include <sys/file.h>
 #include <time.h>
-#include "mongoc/bson.h"
-#include "mongoc/mongo.h"
+#include <bson.h>
+#include <mongo.h>
 
 ZEND_BEGIN_MODULE_GLOBALS(thaps)
 	zend_bool thaps_enabled;
