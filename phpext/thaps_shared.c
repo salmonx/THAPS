@@ -1,7 +1,7 @@
 #include "php_thaps.h"
 #include "thaps_shared.h"
 
-#if ZEND_MODULE_API_NO >= 20131226
+#if ZEND_MODULE_API_NO >= 20121212
 #define THAPS_T(offset) (*EX_TMP_VAR(execute_data, offset))
 #define THAPS_CV(i) (*EX_CV_NUM(execute_data, i))
 #else
