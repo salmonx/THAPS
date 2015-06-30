@@ -12,6 +12,7 @@
 
 #include "php.h"
 #include "php_ini.h"
+#include "ext/standard/info.h"
 #include "SAPI.h"
 #include <stdio.h>
 #include <sys/file.h>
