@@ -12,6 +12,7 @@ This project consists of three parts:
  * MongoDB >= 0.4
  * PHP MongoDB extension >= 1.2.10
  * libmongoc-legacy 0.8.1
+ * libwebkitgtk->= 1.0-0
 
 # THAPS parts
 
